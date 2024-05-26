@@ -1,0 +1,16 @@
+            , Mixco,    Antigua,    Escuintla,  SantaLucia
+Mixco       0           30          Na          Na
+Antigua     30          0           25          Na
+Escuintla   Na          25          0           15
+SantaLucia  Na          Na          15          0
+
+Mixco
+   |
+   30
+Antigua
+    |
+    25
+Escuintla
+    |
+    15
+SantaLucia
