@@ -3,7 +3,9 @@ package com;
 import java.util.*;
 
 public class Grafo {
+    
     public static class Edge<T> {
+        
         private T destination;
         private int weight;
 
@@ -19,10 +21,14 @@ public class Grafo {
         public int getWeight() {
             return weight;
         }
+
+        
+
+        
     }
 
     public static class Graph<T> {
-        private Map<T, List<Edge<T>>> map = new HashMap<>();
+        public Map<T, List<Edge<T>>> map = new HashMap<>();
 
         public void addVertex(T s) {
             map.put(s, new LinkedList<Edge<T>>());
@@ -52,7 +58,16 @@ public class Grafo {
                 System.out.println("No se encontró la ruta");
             }
         }
-        
+
+        public int getWeight(T source, T destination) {
+            for (Edge<T> edge : map.get(source)) {
+                if (edge.getDestination().equals(destination)) {
+                    return edge.getWeight();
+                }
+            }
+            return -1;
+        }
+
         
 
         public String getShortestPath(T source, T destination) {

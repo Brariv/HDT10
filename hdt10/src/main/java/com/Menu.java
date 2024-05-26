@@ -54,7 +54,7 @@ public class Menu {
             case "2":
                 //Usar metodo de Floyd para encontrar el centro del grafo
                 //Imprimir centro del grafo
-
+                System.out.println(new Floyd().findCenter(graph));
                 
                 break;
             case "3":
