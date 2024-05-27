@@ -17,7 +17,7 @@ def txtreader(filename):
 
 
 g = nx.DiGraph()
-path = input("Ingrese el nombre del archivo: ")
+path = input("Ingrese el path del archivo: ")
 Cities = txtreader(path)
 
 for i in range(len(Cities)): #agregar nodos y aristas al grafo

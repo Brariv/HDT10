@@ -68,7 +68,16 @@ public class Grafo {
             return -1;
         }
 
-        
+        private String getPath(Map<T, T> parent, T source, T destination) {
+            List<T> path = new ArrayList<>();
+            T current = destination;
+            while (current != null) {
+                path.add(current);
+                current = parent.get(current);
+            }
+            Collections.reverse(path);
+            return path.toString();
+        }
 
         public String getShortestPath(T source, T destination) {
             Map<T, Integer> distance = new HashMap<>();
@@ -107,8 +116,18 @@ public class Grafo {
             if (distance.get(destination) == Integer.MAX_VALUE) {
                 return("No se encontró una ruta entre " + source + " y " + destination);
             } else {
-                return("La ruta más corta entre " + source + " y " + destination + " es de " + distance.get(destination) + " unidades de distancia");
+                return("La ruta más corta entre " + source + " y " + destination + " es de " + distance.get(destination) + " unidades de distancia y pasa por " + getPath(parent, source, destination));
 
+            }
+        }
+
+        public void printGraph() {
+            for (T vertex : map.keySet()) {
+                System.out.print("La ciudad " + vertex + " tiene rutas a: ");
+                for (Edge<T> edge : map.get(vertex)) {
+                    System.out.print(edge.getDestination() + "(" + edge.getWeight() + ") ");
+                }
+                System.out.println();
             }
         }
     }

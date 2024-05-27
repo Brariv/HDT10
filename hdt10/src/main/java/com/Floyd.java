@@ -21,8 +21,8 @@ public class Floyd {
 
         for (String vertex : graph.map.keySet()) {
             for (Grafo.Edge<String> edge : graph.map.get(vertex)) {
-                dist[graph.map.keySet().toArray(new String[0]).toString().indexOf(vertex)][graph.map.keySet().toArray(new String[0]).toString().indexOf(edge.getDestination())] = edge.getWeight();
-                next[graph.map.keySet().toArray(new String[0]).toString().indexOf(vertex)][graph.map.keySet().toArray(new String[0]).toString().indexOf(edge.getDestination())] = graph.map.keySet().toArray(new String[0]).toString().indexOf(edge.getDestination());
+                dist[graph.map.keySet().toArray(new String[0]).toString().indexOf(vertex)+1][graph.map.keySet().toArray(new String[0]).toString().indexOf(edge.getDestination())+1] = edge.getWeight();
+                next[graph.map.keySet().toArray(new String[0]).toString().indexOf(vertex)+1][graph.map.keySet().toArray(new String[0]).toString().indexOf(edge.getDestination())+1] = graph.map.keySet().toArray(new String[0]).toString().indexOf(edge.getDestination());
             }
         }
 
@@ -52,8 +52,7 @@ public class Floyd {
             }
         }
 
-        return graph.map.keySet().toArray(new String[0])[center];
-        
+        return graph.map.keySet().toArray(new String[0])[center+1];
 
 
 
